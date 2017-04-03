@@ -1,0 +1,92 @@
+POST http://localhost:3000/api/v1/device HTTP/1.1
+content-type: application/json
+
+{
+    "uuid":"cd21048d-1de8-4a9f-9ad9-8e09f12e1d94",
+    "name":"Chathura Wijesinghe"
+}
+
+POST http://localhost:3000/api/v1/device HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Chathura Wijesinghe"
+}
+
+
+
+GET  http://localhost:3000/api/v1/device/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+
+
+PUT  http://localhost:3000/api/v1/device/ HTTP/1.1
+content-type: application/json
+
+{
+    "uuid":"cd21048d-1de8-4a9f-9ad9-8e09f12e1d94",
+    "name":"Wijesinghe S H C D"
+}
+
+
+
+DELETE  http://localhost:3000/api/v1/device/cd21048d-1de8-4a9f-9ad9-8e09f12e1d93 HTTP/1.1
+content-type: application/json
+
+
+## Merchant 
+
+### Create Merchant 
+
+POST http://localhost:3000/api/v1/merchant HTTP/1.1
+content-type: application/json
+
+{
+    "uuid":"cd21048d-1de8-4a9f-9ad9-8e09f12e1d94",
+    "name":"Chathura Wijesinghe",
+    "url":"http://abc.com",
+    "email":"info@persystance.com",
+    "address":"Nugegoda",
+     "merchantTypeId":"58b941a95ed4cb3885d0c561"
+}
+
+### Update Merchant 
+
+PUT http://localhost:3000/api/v1/merchant HTTP/1.1
+content-type: application/json
+
+{
+    "uuid":"cd21048d-1de8-4a9f-9ad9-8e09f12e1d94",
+    "name":"Chathura Wijesinghe",
+    "url":"http://trackme.lk",
+    "email":"hello@trackme.lk",
+    "address":"447/10",
+    "postalcode":"10150",
+    "country":"Sri Lanka",
+    "city":"Athurugiriya",
+    "street":"Kottawa Rd",
+    "isVerified":true,
+    "merchantTypeId":"58b9501e4eb745468200289b"
+    # "merchantType":{
+    #     "merchantTypeId":"58b9501e4eb745468200289b"
+    # }
+}
+
+### Retreive Merchant bu ID 
+
+GET  http://localhost:3000/api/v1/merchant/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+
+DELETE  http://localhost:3000/api/v1/merchant/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+
+
+POST http://localhost:3000/api/v1/mtype HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Bank",
+    "description":"Bank",
+    "image_url":""
+}
+
+
+GET  http://localhost:3000/api/v1/mtype/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+
+GET  http://localhost:3000/api/v1/mtype HTTP/1.1
