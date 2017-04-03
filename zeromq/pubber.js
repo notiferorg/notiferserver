@@ -2,7 +2,7 @@
 var zmq = require('zmq')
   , sock = zmq.socket('pub');
 
-sock.bind('tcp://localhost:5563');
+sock.bind('tcp://dev.notifer.org:5563');
 console.log('Publisher bound to port 8831');
 
 setInterval(function(){
