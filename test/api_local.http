@@ -14,8 +14,10 @@ content-type: application/json
 }
 
 
+# Get Device 
 
-GET  http://localhost:3000/api/v1/device/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+GET http://localhost:3000/api/v1/device/cd21048d-1de8-4a9f-9ad9-8e09f12e1d94 HTTP/1.1
+
 
 
 PUT  http://localhost:3000/api/v1/device/ HTTP/1.1
