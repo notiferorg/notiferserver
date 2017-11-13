@@ -1,5 +1,5 @@
 var swaggerJSDoc = require('swagger-jsdoc'),
-config = require('config');
+config = require('config').application;
 
 // swagger definition
 var swaggerDefinition = {

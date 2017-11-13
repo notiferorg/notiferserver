@@ -1,4 +1,4 @@
-var config = require('config'),
+var config = require('config').zmq,
     jwt = require('jsonwebtoken'),
     _ = require('underscore');
 
