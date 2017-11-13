@@ -37,7 +37,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('./routes')(router);
-app.use('/api/' + config.application.VERSION, router);
+// app.use('/api/' + config.application.VERSION, router);
+app.use('/api/v1', router);
 
 // setup zeromq pubber & subber
 require('./zeromq/pubber')(zmq);
