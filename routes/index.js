@@ -18,7 +18,7 @@ var swaggerDefinition = {
     }
   },
   host: 'dev.notifer.org',
-  basePath: '/api/' + config.application.VERSION,
+  basePath: '/api/' + config.application.VERSION
 };
 
 // options for the swagger docs
