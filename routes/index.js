@@ -1,9 +1,5 @@
-var express = require('express');
-var router = express.Router();
-var config = require('../config');
-
-var apiVersion = config.apiVersion;
-var swaggerJSDoc = require('swagger-jsdoc');
+var swaggerJSDoc = require('swagger-jsdoc'),
+config = require('config');
 
 // swagger definition
 var swaggerDefinition = {
@@ -22,7 +18,7 @@ var swaggerDefinition = {
     }
   },
   host: 'dev.notifer.org',
-  basePath: '/api/' + apiVersion,
+  basePath: '/api/' + config.application.VERSION,
 };
 
 // options for the swagger docs
@@ -36,27 +32,21 @@ var options = {
 // initialize swagger-jsdoc
 var swaggerSpec = swaggerJSDoc(options);
 
-/* default router response */
-router.all('/' + apiVersion, function (req, res, next) {
-  return res.json({ title: 'Welcome to NotiFer' });
-});
+module.exports = (router) => {
 
-// serve swagger
-router.get('/' + apiVersion + '/swagger.json', function (req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.send(swaggerSpec);
-});
+  /* default router response */
+  router.get('/', function(req, res) {
+    res.send('Wellcome to '+config.application.APP_NAME+' api!');
+  });
 
+  // serve swagger
+  router.get('/swagger', function (req, res) {
+    res.setHeader('Content-Type', 'application/json');
+    res.send(swaggerSpec);
+  });
 
+  require('./device')(router);
+  require('./merchant')(router);
+  require('./merchantType')(router);
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'NotiFer' });
-});
-
-router.use('/' + apiVersion + '/device', require('./device'));
-router.use('/' + apiVersion + '/merchant', require('./merchant'));
-router.use('/' + apiVersion + '/mtype', require('./merchantType'));
-router.use('/' + apiVersion + '/zmq', require('./zeromq'));
-
-module.exports = router;
+}

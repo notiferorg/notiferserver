@@ -1,7 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var validator = require('node-mongoose-validator')
-//https://www.npmjs.com/package/node-mongoose-validator
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 /**
  * @swagger
@@ -15,10 +13,10 @@ var validator = require('node-mongoose-validator')
  *       fcmid:
  *         type: string
  */
-var schema = new Schema ({
+var deviceSchema = new Schema ({
     uuid: { type: String, unique: true, required: true },
     name: {type: String},
     fcmid: {type: String}
 });
 
-module.exports = mongoose.model('Device', schema);
+module.exports = mongoose.model('Device', deviceSchema);

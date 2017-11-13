@@ -1,8 +1,15 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'),
+  conn = require('../controllers/user'),
+  auth = require('../controllers/auth');
 
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
-module.exports = router;
+module.exports = (router) => {
+  router.route('/auth/social')
+    .post(auth.socialSignin, auth.generateAndSendToken);
+  router.route('/auth/refresh')
+    .post(auth.isRefreshAuthenticated, auth.refreshToken, auth.generateAndSendToken);
+  router.route('/users')
+    .get(auth.isLocalAuthenticated, conn.getusers)
+    .post(conn.saveusers);
+  router.route('/users/:id').delete(auth.isLocalAuthenticated, conn.deleteusers);
+  router.route('/login').post(auth.authenticateUser, auth.generateAndSendToken);
+}

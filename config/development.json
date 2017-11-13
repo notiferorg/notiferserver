@@ -1,0 +1,52 @@
+{
+    "application": {
+        "VERSION": "v1",
+        "APP_NAME": "Notifer",
+        "PORT": "3000",
+        "FILES" : {
+            "NO_OF_FILES": 10,
+            "FILE_SIZE": 700000000
+          },
+        "BASE_URL":"http://localhost:3000/api/v1"
+    },
+    "database": {
+        "host": "0.0.0.0",
+        "username": "",
+        "password": "",
+        "port": "27017",
+        "name": "notiferver-2017/11/06"
+    },
+    "secret": {
+        "KEY": "secretkeyfortokengenerator",
+        "REFRESHKEY": "secretkeyforrefreshtokengenerator",
+        "EXPIRE_TIME": "120m"
+    },
+    "facebookAuth": {
+        "CLIENT_ID": "1950625845208220",
+        "CLIENT_SECRET": "61ca760003844aee478253b7f6ae5598",
+        "CALLBACK_URL": "http://192.168.1.53:3000/api/v1/auth/facebook/callback",
+        "SCOPES": ["id", "displayName", "picture.type(large)", "email", "first_name", "last_name"]
+    },
+    "googleAuth": {
+        "CLIENT_ID": "318369481647-v6cc2f5s04spjc10jsvf8c9pbfkpb8lc.apps.googleusercontent.com",
+        "CLIENT_SECRET": "61ca760003844aee478253b7f6ae5598",
+        "CALLBACK_URL": "http://192.168.1.53:3000/api/v1/auth/google/callback",
+        "SCOPES": ["id", "displayName", "picture.type(large)", "email", "first_name", "last_name"]
+    },
+    "STRATEGIES": {
+      "LOCAL": "local",
+      "BASIC": "basic",
+      "CLIENT_BASIC": "client-basic",
+      "BEARER": "bearer",
+      "FACEBOOK": "facebook",
+      "GOOGLE": "google"
+    },
+    "grantType": {
+        "FACEBOOK": "facebook",
+        "GOOGLE": "google",
+        "CUSTOM": "custom"
+    },
+    "zmq": {
+        "ZMQ_URL": "tcp://127.0.0.1:3000"
+    }
+}

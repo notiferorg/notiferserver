@@ -1,6 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var validator = require('node-mongoose-validator') 
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 /**
  * @swagger
@@ -14,10 +13,10 @@ var validator = require('node-mongoose-validator')
  *       image_url:
  *         type: string
  */
-var schema = new Schema ({
+var merchantTypeSchema = new Schema ({
     name: {type: String},
     description: {type: String},
     image_url: {type: String},
 },{ autoIndex: false});
 
-module.exports = mongoose.model('MerchantType', schema);
+module.exports = mongoose.model('MerchantType', merchantTypeSchema);

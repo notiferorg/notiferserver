@@ -7,8 +7,7 @@ content-type: application/json
 }
 
 
-GET  http://dev.notifer.org/api/v1/device/
- HTTP/1.1
+GET http://dev.notifer.org/api/v1/device/ HTTP/1.1
 
 
 PUT  http://dev.notifer.org/api/v1/device/ HTTP/1.1

@@ -1,6 +1,5 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var validator = require('node-mongoose-validator') 
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 /**
  * @swagger
@@ -33,7 +32,7 @@ var validator = require('node-mongoose-validator')
  *         type: string
  * 
  */
-var schema = new Schema ({
+var merchantSchema = new Schema ({
     uuid: { type: String, unique: true, required: true },
     name: {type: String},
     mtype: {type: Number},
@@ -45,7 +44,7 @@ var schema = new Schema ({
     country: {type: String},
     postalcode: {type: String},
     isVerified:{type: Boolean, default:0},
-    merchantTypeId:{ type: Schema.Types.ObjectId, ref: 'MerchantType', required: true }
+    merchantTypeId:[{ type: Schema.Types.ObjectId, ref: 'MerchantType', required: true }]
 });
 
-module.exports = mongoose.model('Merchant', schema);
+module.exports = mongoose.model('Merchant', merchantSchema);

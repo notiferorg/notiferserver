@@ -1,12 +1,17 @@
-// pubber.js
-var zmq = require('zmq')
-  , sock = zmq.socket('pub');
+var config = require('config'),
+    jwt = require('jsonwebtoken'),
+    _ = require('underscore');
 
-// sock.bind('tcp://0.0.0.0:5563');
-// console.log('Publisher bound to port 8831');
+module.exports = (zmq) => {
+    
+   var sock = zmq.socket('pub');
+    
+   sock.bindSync(config.zmq.ZMQ_URL);
+   console.log('Publisher bound to port 3000');
+    
+   setInterval(function(){
+     console.log('sending a multipart message envelope');
+     sock.send(['CONNECT_CLIENT', 'meow!']);
+   }, 500);
 
-// setInterval(function(){
-//   console.log('sending a multipart message envelope');
-//   sock.send(['kitty cats', 'meow!']);
-// }, 3000);
-
+}
