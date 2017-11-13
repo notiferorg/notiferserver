@@ -1,5 +1,5 @@
 var swaggerJSDoc = require('swagger-jsdoc'),
-config = require('config').application;
+config = require('config');
 
 // swagger definition
 var swaggerDefinition = {
@@ -18,7 +18,7 @@ var swaggerDefinition = {
     }
   },
   host: 'dev.notifer.org',
-  basePath: '/api/' + config.VERSION
+  basePath: '/api/' + config.application.VERSION
 };
 
 // options for the swagger docs
