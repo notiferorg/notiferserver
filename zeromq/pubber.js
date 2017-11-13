@@ -12,6 +12,6 @@ module.exports = (zmq) => {
    setInterval(function(){
      console.log('sending a multipart message envelope');
      sock.send(['CONNECT_CLIENT', 'meow!']);
-   }, 500);
+   }, 5000);
 
 }
