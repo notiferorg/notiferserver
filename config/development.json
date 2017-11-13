@@ -7,7 +7,7 @@
             "NO_OF_FILES": 10,
             "FILE_SIZE": 700000000
           },
-        "BASE_URL":"http://dev.notifer.org/api/v1"
+        "BASE_URL":"http://localhost:3000/api/v1"
     },
     "database": {
         "host": "0.0.0.0",
